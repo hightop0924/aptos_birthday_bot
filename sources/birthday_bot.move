@@ -158,8 +158,7 @@ module overmind::birthday_bot {
         let store = borrow_global_mut<DistributionStore>(account_addr);
         table::add(&mut store.birthday_gifts, address, BirthdayGift {
                 amount: amount,
-                birthday_timestamp_seconds: birthday_timestamp_seconds
-            });
+                birthday_timestamp_seconds: birthday_timestamp_seconds});
         // TODO: transfer the `amount` from initiator to resource account
         coin::transfer<AptosCoin>(account, signer::address_of(&resource_signer), amount);
     }
